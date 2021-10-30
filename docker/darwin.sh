@@ -18,6 +18,7 @@ main() {
     libxml2-dev
     xz-utils
     zlib1g-dev
+    python
   )
 
   apt-get update
@@ -35,8 +36,9 @@ main() {
   cd /opt
   git clone https://github.com/tpoechtrager/osxcross
   cd osxcross
-  curl -L https://s3.dockerproject.org/darwin/v2/MacOSX10.10.sdk.tar.xz -o tarballs/MacOSX10.10.sdk.tar.xz
-  UNATTENDED=yes OSX_VERSION_MIN=10.7 ./build.sh
+  cp /MacOSX11.3.sdk.tar.xz tarballs/MacOSX11.3.sdk.tar.xz
+  # curl -L https://s3.dockerproject.org/darwin/v2/MacOSX10.10.sdk.tar.xz -o tarballs/MacOSX10.10.sdk.tar.xz
+  UNATTENDED=yes OSX_VERSION_MIN=11.0 ./build.sh
   ln -s /opt/osxcross/target/bin/* /usr/local/bin/
 
   local purge_list=(

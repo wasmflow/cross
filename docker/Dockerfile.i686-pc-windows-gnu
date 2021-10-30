@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 COPY common.sh lib.sh /
 RUN /common.sh
@@ -10,7 +10,7 @@ COPY xargo.sh /
 RUN /xargo.sh
 
 RUN dpkg --add-architecture i386 && apt-get update && \
-    apt-get install --assume-yes --no-install-recommends \
+    DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends \
         wine-stable \
         wine64 \
         wine32 \
