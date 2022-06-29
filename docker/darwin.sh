@@ -45,7 +45,6 @@ main() {
     curl
     gcc
     g++
-    make
     patch
     xz-utils
   )
